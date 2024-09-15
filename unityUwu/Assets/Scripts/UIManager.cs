@@ -14,14 +14,22 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+       
     }
 
     // Update is called once per frame
     void Update()
     {
         bachesText.text = "Baches totales: " + carController.contadorBaches;
-        posicionBacheText.text = "Último bache en: (" + carController.bachePosition.x.ToString("F2") + ", " + carController.bachePosition.y.ToString("F2") + ", " + carController.bachePosition.z.ToString("F2") + ")";
+        //posicionBacheText.text = "Último bache en: (" + carController.bachePosition.x.ToString("F2") + ", " + carController.bachePosition.y.ToString("F2") + ", " + carController.bachePosition.z.ToString("F2") + ")";
+        // Reiniciar el texto de las posiciones de los baches
+        posicionBacheText.text = "Posiciones de baches:";
+
+        // Añadir cada posición de bache al texto
+        foreach (Vector3 pos in carController.bachesPositions)
+        {
+            posicionBacheText.text += "\n(" + pos.x.ToString("F2") + ", " + pos.y.ToString("F2") + ", " + pos.z.ToString("F2") + ")";
+        }
     }
 
     void Awake()

@@ -9,7 +9,7 @@ public class CarController : MonoBehaviour
     public float horizontal;
     public float vertical;
     public int contadorBaches = 0;
-    public Vector3 bachePosition;
+    public List<Vector3> bachesPositions = new List<Vector3>();
     // Start is called before the first frame update
     void Start()
     {
@@ -39,7 +39,7 @@ public class CarController : MonoBehaviour
             }
             other.GetComponent<Collider>().enabled = false;
             contadorBaches++;
-            bachePosition = other.transform.position;
+            bachesPositions.Add(other.transform.position);
         }
     }
 }
